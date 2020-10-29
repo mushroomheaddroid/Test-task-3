@@ -4,8 +4,8 @@
 
       <nav class="mb-3">
         <b-nav vertical>
-            <router-link class="sidebar__item" to="/">Главная</router-link>
-            <router-link class="sidebar__item" to="/lessons">Расписание</router-link>
+            <router-link active-class="sidebar__item_disabled" class="sidebar__item" to="/" exact>Главная</router-link>
+            <router-link active-class="sidebar__item_disabled" class="sidebar__item" to="/lessons" exact>Расписание</router-link>
         </b-nav>
       </nav>
 
@@ -33,6 +33,12 @@
         color: #42b983;
         text-decoration: none;
         background-color: #575C61;
+      }
+      &_disabled {
+        background-color: #575C61;
+        color: #42b983;
+        text-decoration: none;
+        pointer-events: none;
       }
     }
   }
