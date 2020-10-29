@@ -73,6 +73,9 @@ export default {
     &__list {
       margin: 48px auto;
       max-width: 400px;
+      @media screen and (max-width: 500px) {
+        margin: 16px auto;
+      }
     }
   }
 </style>

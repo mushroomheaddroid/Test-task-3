@@ -98,6 +98,9 @@ export default {
     justify-content: center;
     align-items: center;
     margin-left: 12px;
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
   }
   &__dropdown {
     margin-left: auto;

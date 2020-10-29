@@ -74,5 +74,11 @@
 
 .page-title {
   padding-top: 32px;
+  @media screen and (max-width: 500px) {
+    padding-top: 16px;
+    h1 {
+      font-size: 24px;
+    }
+  }
 }
 </style>
