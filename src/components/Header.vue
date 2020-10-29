@@ -12,8 +12,8 @@
     <div class="header__logo">EDUCATION</div>
     <div class="header__dropdown">
 
-      <b-form-select v-model="selected">
-        <b-form-select-option  :value="null" disabled>Выберите курс</b-form-select-option>
+      <b-form-select v-model="selected" @change="goToSchedule">
+        <b-form-select-option :value="null" disabled>Выберите курс</b-form-select-option>
         <b-form-select-option v-for="(course, index) in courses" :key="index" :value="course.id">{{ course.name }}</b-form-select-option>
       </b-form-select>
     </div>
@@ -47,7 +47,10 @@ export default {
   computed: {
   },
   methods: {
-    ...mapMutations(['updateCourseType'])
+    ...mapMutations(['updateCourseType']),
+    goToSchedule() {
+      this.$router.push(`/lessons`, () => {});
+    }
   },
 }
 </script>

@@ -38,7 +38,6 @@ export default {
       }
     },
     lessonDate() {
-      console.log(this.$route.params)
       if (this.lessons(this.lessonId).length > 0) {
         let a = new Date(+this.lessons(this.lessonId)[0].startedAt);
         let year = a.getFullYear();
