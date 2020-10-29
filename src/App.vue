@@ -1,14 +1,56 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header
+        :courses="courses"
+    />
+    <Sidebar/>
+    <div class="main">
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+  import Vue from 'vue';
+  import Sidebar from "@/components/Sidebar";
+  import Header from "@/components/Header";
+
+  import { BootstrapVue } from 'bootstrap-vue';
+  import {mapActions, mapGetters} from "vuex";
+
+  Vue.use(BootstrapVue);
+
+  export default {
+    name: 'App',
+    components: {
+      Sidebar,
+      Header
+    },
+
+    computed: {
+      ...mapGetters(['courses']),
+    },
+
+    methods: {
+      Vue,
+      ...mapActions(['fetchCourses']),
+    },
+
+    async mounted() {
+      await this.fetchCourses();
+    }
+  }
+</script>
+
 <style lang="scss">
+
+@import "~bootstrap";
+@import "~bootstrap-vue";
+
+.main {
+  margin-top: 72px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,5 +70,9 @@
       color: #42b983;
     }
   }
+}
+
+.page-title {
+  padding-top: 32px;
 }
 </style>
