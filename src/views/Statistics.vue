@@ -7,3 +7,12 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Stats',
+  mounted() {
+    this.$emit('setActiveTab', 2);
+  }
+}
+</script>

@@ -6,8 +6,7 @@
       <b-nav-item :active="tab === 1" v-on:click="tab = 1" @click="goToTab('tests')">Тесты</b-nav-item>
       <b-nav-item :active="tab === 2" v-on:click="tab = 2" @click="goToTab('stats')">Статистика</b-nav-item>
     </b-nav>
-
-    <router-view/>
+    <router-view @setActiveTab="setActiveTab" />
   </div>
 </template>
 
@@ -21,7 +20,10 @@ export default {
   methods: {
     ...mapActions(['fetchLessons']),
     goToTab(tab) {
-      this.$router.push(`/lesson/${this.lessonId}/${tab}`);
+      this.$router.push(`/lesson/${this.lessonId}/${tab}`, () => {});
+    },
+    setActiveTab(tab) {
+      this.tab = tab;
     }
   },
   computed: {
@@ -36,6 +38,7 @@ export default {
       }
     },
     lessonDate() {
+      console.log(this.$route.params)
       if (this.lessons(this.lessonId).length > 0) {
         let a = new Date(+this.lessons(this.lessonId)[0].startedAt);
         let year = a.getFullYear();

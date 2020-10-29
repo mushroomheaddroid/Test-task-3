@@ -23,11 +23,11 @@ const routes = [
     children: [
       {
         path: 'tests',
-        component: () => import('../views/Tests.vue')
+        component: () => import('../views/Tests.vue'),
       },
       {
         path: 'stats',
-        component: () => import('../views/Statistics.vue')
+        component: () => import('../views/Statistics.vue'),
       }
     ]
   }
