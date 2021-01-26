@@ -1,4 +1,4 @@
-# max_edu
+# Test-task-3 (Vue)
 
 ## Project setup
 ```
