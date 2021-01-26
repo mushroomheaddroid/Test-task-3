@@ -1,4 +1,4 @@
-# Test-task-3 (Vue)
+# Тестовое задание 3 (Vue)
 
 ## Project setup
 ```
